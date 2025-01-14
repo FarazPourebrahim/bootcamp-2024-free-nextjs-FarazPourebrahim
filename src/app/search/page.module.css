@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 3fr;
   gap: 1rem;
+  margin-block-end: 1rem;
 
   .filters {
     background-color: var(--color-gray-98);
@@ -10,8 +11,30 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    /*problem with line below*/
+    max-block-size: 40rem;
   }
 
   .main {
+    .result-header {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .count {
+      margin-block-start: 1rem;
+      background-color: var(--color-gray-90);
+      inline-size: 7rem;
+      padding: 0.5rem;
+      border-radius: 1rem;
+    }
+    .result {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-block: 1rem;
+    }
   }
 }
