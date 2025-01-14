@@ -9,6 +9,7 @@ export default function TourTypeFilter() {
     { value: "nature", label: "طبیعت‌گردی" },
     { value: "historical", label: "تاریخی" },
     { value: "sports", label: "ورزشی" },
+    { value: "relaxation", label: "آرامش" },
   ];
 
   return (

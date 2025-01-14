@@ -41,7 +41,7 @@ export default function TourGuideFilter() {
             className={styles.radio}
           />
           <label htmlFor="guide-no" className={styles.radioLabel}>
-            خیر، نیازی نیست
+            فرقی ندارد
           </label>
         </div>
       </div>
