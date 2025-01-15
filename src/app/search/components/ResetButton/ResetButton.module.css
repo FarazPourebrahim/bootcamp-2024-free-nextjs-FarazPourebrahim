@@ -12,7 +12,7 @@
     transform 0.3s ease;
 
   &:hover {
-    opacity: 0.9;
+    background-color: var(--color-primary-lighter);
   }
 
   &:active {
@@ -20,7 +20,7 @@
   }
 
   &.disabled {
-    background-color: var(--color-gray-70);
+    background-color: var(--color-gray-90);
     color: var(--color-gray-30);
     cursor: not-allowed;
     pointer-events: none;
