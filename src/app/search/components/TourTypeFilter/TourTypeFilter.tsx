@@ -6,14 +6,14 @@ import styles from "./TourTypeFilter.module.css";
 
 export default function TourTypeFilter() {
   const tourTypes = [
-    { value: "cultural", label: "فرهنگی" },
-    { value: "adventure", label: "ماجراجویی" },
-    { value: "luxury", label: "لوکس" },
-    { value: "family", label: "خانوادگی" },
-    { value: "nature", label: "طبیعت‌گردی" },
-    { value: "historical", label: "تاریخی" },
-    { value: "sports", label: "ورزشی" },
-    { value: "relaxation", label: "آرامش" },
+    { value: "Cultural", label: "فرهنگی" },
+    { value: "Adventure", label: "ماجراجویی" },
+    { value: "Luxury", label: "لوکس" },
+    { value: "Family", label: "خانوادگی" },
+    { value: "Nature", label: "طبیعت‌گردی" },
+    { value: "Historical", label: "تاریخی" },
+    { value: "Sports", label: "ورزشی" },
+    { value: "Relaxation", label: "آرامش" },
   ];
 
   const { filters, changeFilter } = useContext(FiltersContext);
