@@ -17,6 +17,7 @@ export default function PriceRangeFilter() {
         ? [Number(value), priceRange[1]]
         : [priceRange[0], Number(value)];
 
+    // @ts-ignore
     setPriceRange(newRange);
     changeFilter(name === "min" ? "min" : "max", Number(value));
   };

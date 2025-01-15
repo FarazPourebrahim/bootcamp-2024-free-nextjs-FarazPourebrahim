@@ -3,9 +3,10 @@
 import { useContext, useState } from "react";
 import styles from "./DurationFilter.module.css";
 import { FiltersContext } from "@/app/search/providers/filters/filters.provider";
+import { FiltersType } from "@/app/search/types/filters.type";
 
 export default function DurationFilter() {
-  const options = [
+  const options: { label: string; value: [number, number] }[] = [
     { label: "هر مدتی", value: [1, 30] },
     { label: "1 تا 3 روز", value: [1, 3] },
     { label: "4 تا 7 روز", value: [4, 7] },
@@ -19,7 +20,8 @@ export default function DurationFilter() {
   );
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedValue = options[Number(event.target.value)].value;
+    const selectedValue = options[Number(event.target.value)]
+      .value as FiltersType["duration"];
     setSelectedOption(selectedValue);
     changeFilter("duration", selectedValue);
   };

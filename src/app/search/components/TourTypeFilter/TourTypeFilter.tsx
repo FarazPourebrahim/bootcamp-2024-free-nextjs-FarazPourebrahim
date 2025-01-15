@@ -24,9 +24,11 @@ export default function TourTypeFilter() {
   const handleCheckboxChange = (value: string) => {
     if (selectedTypes.includes(value)) {
       const updatedTypes = selectedTypes.filter((type) => type !== value);
+      // @ts-ignore
       changeFilter("type", updatedTypes.length > 0 ? updatedTypes : "All");
     } else {
       const updatedTypes = [...selectedTypes, value];
+      // @ts-ignore
       changeFilter("type", updatedTypes);
     }
   };

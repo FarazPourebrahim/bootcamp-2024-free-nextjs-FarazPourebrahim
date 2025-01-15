@@ -12,7 +12,7 @@ export default function TourGuideFilter() {
   );
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value === "yes" ? true : null;
+    const value = event.target.value === "yes" ? true : false;
     setIsGuideAvailable(value);
     changeFilter("guide", value);
   };
@@ -42,7 +42,7 @@ export default function TourGuideFilter() {
             name="guide"
             value="no"
             onChange={handleChange}
-            checked={isGuideAvailable === null}
+            checked={isGuideAvailable === false}
             className={styles.radio}
           />
           <label htmlFor="guide-no" className={styles.radioLabel}>
