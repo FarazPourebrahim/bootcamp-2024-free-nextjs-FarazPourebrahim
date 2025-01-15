@@ -1,13 +1,15 @@
 "use client";
 
-import { useState } from "react";
 import styles from "./Sort.module.css";
 
-export default function Sort() {
-  const [selectedOption, setSelectedOption] = useState<string>("price-asc");
+type SortProps = {
+  selectedOption: string;
+  onSortChange: (value: string) => void;
+};
 
+export default function Sort({ selectedOption, onSortChange }: SortProps) {
   const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedOption(event.target.value);
+    onSortChange(event.target.value);
   };
 
   return (
