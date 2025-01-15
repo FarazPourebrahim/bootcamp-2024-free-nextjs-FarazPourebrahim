@@ -46,10 +46,10 @@ function PageContent() {
         return a.duration - b.duration;
       case "duration-desc":
         return b.duration - a.duration;
-      case "popularity":
-        return b.popularity - a.popularity; // Assuming `popularity` exists
-      case "rating":
-        return b.rating - a.rating; // Assuming `rating` exists
+      // case "popularity":
+      //   return b.popularity - a.popularity;
+      // case "rating":
+      //   return b.rating - a.rating;
       default:
         return 0;
     }
