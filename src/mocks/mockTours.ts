@@ -1,4 +1,25 @@
-export const mockTours = [
+type MockTour = {
+  id: number;
+  title: string;
+  type:
+    | "Relaxation"
+    | "Cultural"
+    | "Adventure"
+    | "Luxury"
+    | "Family"
+    | "Nature"
+    | "Historical"
+    | "Sports";
+  location: string;
+  price: number;
+  duration: number;
+  guideAvailable: boolean;
+  image: string;
+};
+
+type MockTours = MockTour[];
+
+export const mockTours: MockTours = [
   {
     id: 1,
     title: "تور کویر مرنجاب",
