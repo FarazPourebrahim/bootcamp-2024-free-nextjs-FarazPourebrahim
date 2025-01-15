@@ -1,20 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import styles from "./PriceRangeFilter.module.css";
+import { FiltersContext } from "@/app/search/providers/filters/filters.provider";
 
 export default function PriceRangeFilter() {
-  const [priceRange, setPriceRange] = useState<[number, number]>([
-    500000, 1000000,
-  ]);
+  const { filters, changeFilter } = useContext(FiltersContext);
+  const [priceRange, setPriceRange] = useState<[number, number]>(
+    filters.min && filters.max ? [filters.min, filters.max] : [500000, 1000000],
+  );
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    setPriceRange((prevRange) =>
+    const newRange =
       name === "min"
-        ? [Number(value), prevRange[1]]
-        : [prevRange[0], Number(value)],
-    );
+        ? [Number(value), priceRange[1]]
+        : [priceRange[0], Number(value)];
+
+    setPriceRange(newRange);
+    changeFilter(name === "min" ? "min" : "max", Number(value));
   };
 
   return (
