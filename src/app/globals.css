@@ -43,6 +43,12 @@
   --color-success-lighter: hsl(140deg 60% 50%);
   --color-success-darker: hsl(140deg 60% 30%);
   --color-success-opposite: var(--color-gray-98);
+
+  --color-danger: hsl(10deg 80% 48%);
+  --color-danger-fade: hsl(10deg 80% 96%);
+  --color-danger-lighter: hsl(10deg 80% 52%);
+  --color-danger-darker: hsl(10deg 80% 44%);
+  --color-danger-opposite: var(--color-gray-99);
 }
 
 *,
