@@ -13,7 +13,7 @@ import DurationFilter from "@/app/search/components/DurationFilter/DurationFilte
 import TourGuideFilter from "@/app/search/components/TourGuideFilter/TourGuideFilter";
 import SearchBox from "@/components/SearchBox/SearchBox";
 import Sort from "@/app/search/components/Sort/Sort";
-import Card from "@/app/search/components/Card/Card";
+import Card from "@/components/Card/Card";
 import { mockTours } from "@/mocks/mockTours";
 
 function PageContent() {
