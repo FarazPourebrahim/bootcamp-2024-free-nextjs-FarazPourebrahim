@@ -21,6 +21,7 @@
 
   &.disabled {
     background-color: var(--color-gray-90);
+    opacity: 0.8;
     color: var(--color-gray-30);
     cursor: not-allowed;
     pointer-events: none;
