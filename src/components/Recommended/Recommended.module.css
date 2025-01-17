@@ -21,6 +21,7 @@
       box-shadow: var(--shadow-700);
       border-radius: 0.25rem;
       font-size: var(--fz-500);
+      opacity: 0.9;
 
       &:hover {
         background-color: var(--color-primary-darker);
