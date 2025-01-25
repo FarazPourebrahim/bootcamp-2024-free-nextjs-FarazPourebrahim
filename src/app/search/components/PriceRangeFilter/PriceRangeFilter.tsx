@@ -1,14 +1,23 @@
 "use client";
 
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import styles from "./PriceRangeFilter.module.css";
 import { FiltersContext } from "@/app/search/providers/filters/filters.provider";
+import { FiltersType } from "@/app/search/types/filters.type";
 
 export default function PriceRangeFilter() {
   const { filters, changeFilter } = useContext(FiltersContext);
-  const [priceRange, setPriceRange] = useState<[number, number]>(
-    filters.min && filters.max ? [filters.min, filters.max] : [500000, 1000000],
-  );
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 0]);
+
+  const formatNumber = (number: number): string => {
+    return new Intl.NumberFormat("fa-IR").format(number);
+  };
+
+  useEffect(() => {
+    const initialMin = filters.min ?? 0;
+    const initialMax = filters.max ?? 100000000;
+    setPriceRange([initialMin, initialMax]);
+  }, [filters.min, filters.max]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -19,7 +28,7 @@ export default function PriceRangeFilter() {
 
     // @ts-ignore
     setPriceRange(newRange);
-    changeFilter(name === "min" ? "min" : "max", Number(value));
+    changeFilter(name as keyof FiltersType, Number(value));
   };
 
   return (
@@ -37,7 +46,7 @@ export default function PriceRangeFilter() {
               name="min"
               step="200000"
               min="0"
-              max="100000000"
+              max={priceRange[1]}
               value={priceRange[0]}
               onChange={handleChange}
               className={styles.input}
@@ -46,7 +55,7 @@ export default function PriceRangeFilter() {
           <input
             type="range"
             min="0"
-            max="100000000"
+            max={priceRange[1]}
             step="500000"
             value={priceRange[0]}
             onChange={(e) =>
@@ -68,8 +77,8 @@ export default function PriceRangeFilter() {
               id="max"
               name="max"
               step="200000"
-              min="0"
-              max="100000000"
+              min={priceRange[0]}
+              max="10000000"
               value={priceRange[1]}
               onChange={handleChange}
               className={styles.input}
@@ -77,8 +86,8 @@ export default function PriceRangeFilter() {
           </div>
           <input
             type="range"
-            min="0"
-            max="100000000"
+            min={priceRange[0]}
+            max="10000000"
             step="500000"
             value={priceRange[1]}
             onChange={(e) =>
@@ -91,7 +100,7 @@ export default function PriceRangeFilter() {
         </div>
       </div>
       <p className={styles.selectedRange}>
-        از {priceRange[0]} تا {priceRange[1]} تومان
+        از {formatNumber(priceRange[0])} تا {formatNumber(priceRange[1])} تومان
       </p>
     </div>
   );
