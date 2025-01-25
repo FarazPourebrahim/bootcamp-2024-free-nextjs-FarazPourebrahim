@@ -46,10 +46,6 @@ function PageContent() {
         return a.duration - b.duration;
       case "duration-desc":
         return b.duration - a.duration;
-      // case "popularity":
-      //   return b.popularity - a.popularity;
-      // case "rating":
-      //   return b.rating - a.rating;
       default:
         return 0;
     }
@@ -67,8 +63,8 @@ function PageContent() {
       <div className={styles.main}>
         <SearchBox />
         <div className={styles["result-header"]}>
-          <p className={styles.count}>{sortedMockTours.length} نتیجه پیدا شد</p>
           <Sort selectedOption={sortOption} onSortChange={handleSortChange} />
+          <p className={styles.count}>{sortedMockTours.length} نتیجه پیدا شد</p>
         </div>
         <div className={styles.result}>
           {sortedMockTours.map((item) => (

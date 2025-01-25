@@ -3,6 +3,7 @@
   grid-template-columns: 1fr 3fr;
   gap: 1rem;
   margin-block-end: 1rem;
+  align-items: start;
 
   .filters {
     background-color: var(--color-gray-98);
@@ -11,13 +12,12 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    max-block-size: fit-content;
   }
 
   .main {
     .result-header {
       display: flex;
-      flex-direction: row-reverse;
+      flex-direction: row;
       justify-content: space-between;
       align-items: flex-end;
     }
