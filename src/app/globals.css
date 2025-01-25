@@ -48,7 +48,7 @@
   --color-danger-fade: hsl(10deg 80% 96%);
   --color-danger-lighter: hsl(10deg 80% 52%);
   --color-danger-darker: hsl(10deg 80% 44%);
-  --color-danger-opposite: var(--color-gray-99);
+  --color-danger-opposite: var(--color-gray-98);
 }
 
 *,
