@@ -1,4 +1,4 @@
-type MockTour = {
+export type MockTour = {
   id: number;
   title: string;
   type:
