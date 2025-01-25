@@ -8,13 +8,13 @@ export default function TourGuideFilter() {
   const { filters, changeFilter } = useContext(FiltersContext);
 
   const [isGuideAvailable, setIsGuideAvailable] = useState<boolean>(
-    filters.guide,
+    filters.isGuideMandatory,
   );
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value === "yes";
     setIsGuideAvailable(value);
-    changeFilter("guide", value);
+    changeFilter("isGuideMandatory", value);
   };
 
   return (

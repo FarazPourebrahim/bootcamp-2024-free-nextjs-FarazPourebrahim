@@ -30,7 +30,8 @@ function PageContent() {
       (filters.type === "All" || filters.type.includes(item.type)) &&
       item.price >= filters.min &&
       item.price <= filters.max &&
-      (!filters.guide || (filters.guide && item.guideAvailable)) &&
+      (!filters.isGuideMandatory ||
+        (filters.isGuideMandatory && item.guideAvailable)) &&
       item.duration >= filters.duration[0] &&
       item.duration <= filters.duration[1]
     );

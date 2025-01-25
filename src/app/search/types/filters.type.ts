@@ -13,5 +13,5 @@ export type FiltersType = {
   min: number;
   max: number;
   duration: [1, 3] | [4, 7] | [8, 14] | [15, 30] | [1, 30];
-  guide: boolean;
+  isGuideMandatory: boolean;
 };
