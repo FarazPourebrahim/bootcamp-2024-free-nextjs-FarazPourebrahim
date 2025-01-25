@@ -18,7 +18,7 @@
       align-items: center;
 
       .checkbox {
-        margin-right: 0.25rem;
+        margin-inline-end: 0.25rem;
         cursor: pointer;
 
         width: 1rem;

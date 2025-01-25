@@ -1,7 +1,7 @@
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-top: 5rem;
+  margin-block-start: 5rem;
 
   .hero-image {
     .circle {
@@ -16,8 +16,7 @@
     img {
       position: relative;
       z-index: 1;
-      margin-top: -1000rem;
-      /*mix-blend-mode: darken;*/
+      margin-block-start: -1000rem;
     }
   }
 

@@ -71,7 +71,7 @@
     font-size: var(--fz-400);
     font-weight: 500;
     color: var(--color-primary);
-    margin-top: 1rem;
+    margin-block-start: 1rem;
     text-align: center;
   }
 }
