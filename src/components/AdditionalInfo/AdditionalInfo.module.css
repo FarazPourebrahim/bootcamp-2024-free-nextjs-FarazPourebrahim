@@ -4,11 +4,11 @@
   margin-block-start: 10rem;
 
   .info {
-    font-size: var(--fz-600);
+    font-size: var(--fz-500);
 
     p {
-      text-align: center;
-      max-width: 25ch;
+      text-align: right;
+      max-width: 30ch;
     }
 
     span {
