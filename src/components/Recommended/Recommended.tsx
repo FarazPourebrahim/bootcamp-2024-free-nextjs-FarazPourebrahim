@@ -5,6 +5,18 @@ import { mockTours } from "@/mocks/mockTours";
 import Card from "@/components/Card/Card";
 
 export default function Recommended(): ReactElement {
+  const getRandomIndexes = (count: number, max: number): number[] => {
+    const indexes = new Set<number>();
+    while (indexes.size < count) {
+      const randomIndex = Math.floor(Math.random() * max);
+      indexes.add(randomIndex);
+    }
+    return Array.from(indexes);
+  };
+
+  const randomIndexes = getRandomIndexes(3, mockTours.length);
+  const randomTours = randomIndexes.map((index) => mockTours[index]);
+
   return (
     <div className={styles.recommended}>
       <h3>یک ماجراجویی فراموش‌نشدنی در همین نزدیکی!</h3>
@@ -12,21 +24,9 @@ export default function Recommended(): ReactElement {
         <Link href={"/search"} className={styles.more}>
           ▶
         </Link>
-        {mockTours
-          .sort(() => 0.5 - Math.random())
-          .slice(0, 3)
-          .map((item) => (
-            <Card
-              key={item.id}
-              title={item.title}
-              location={item.location}
-              price={item.price}
-              duration={item.duration}
-              guideAvailable={item.guideAvailable}
-              type={item.type}
-              image={item.image}
-            />
-          ))}
+        {randomTours.map((tour) => (
+          <Card key={tour.id} tour={tour} />
+        ))}
         <Link href={"/search"} className={styles.more}>
           ◀
         </Link>

@@ -1,25 +1,8 @@
 import styles from "./Card.module.css";
 import Image from "next/image";
+import { MockTour } from "@/mocks/mockTours";
 
-type CardProps = {
-  title: string;
-  location: string;
-  price: number;
-  duration: number;
-  guideAvailable: boolean;
-  type:
-    | "Relaxation"
-    | "Cultural"
-    | "Adventure"
-    | "Luxury"
-    | "Family"
-    | "Nature"
-    | "Historical"
-    | "Sports";
-  image: string;
-};
-
-const typeToPersian: Record<CardProps["type"], string> = {
+const typeToPersian: Record<MockTour["type"], string> = {
   Adventure: "ماجراجویی",
   Cultural: "فرهنگی",
   Historical: "تاریخی",
@@ -30,15 +13,10 @@ const typeToPersian: Record<CardProps["type"], string> = {
   Sports: "ورزشی",
 };
 
-export default function Card({
-  title,
-  location,
-  price,
-  duration,
-  guideAvailable,
-  type,
-  image,
-}: CardProps) {
+export default function Card({ tour }: { tour: MockTour }) {
+  const { title, location, price, duration, guideAvailable, type, image } =
+    tour;
+
   return (
     <div className={styles.card}>
       <Image

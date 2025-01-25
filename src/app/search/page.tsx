@@ -67,17 +67,8 @@ function PageContent() {
           <p className={styles.count}>{sortedMockTours.length} نتیجه پیدا شد</p>
         </div>
         <div className={styles.result}>
-          {sortedMockTours.map((item) => (
-            <Card
-              key={item.id}
-              title={item.title}
-              location={item.location}
-              price={item.price}
-              duration={item.duration}
-              guideAvailable={item.guideAvailable}
-              type={item.type}
-              image={item.image}
-            />
+          {sortedMockTours.map((tour) => (
+            <Card key={tour.id} tour={tour} />
           ))}
         </div>
       </div>
