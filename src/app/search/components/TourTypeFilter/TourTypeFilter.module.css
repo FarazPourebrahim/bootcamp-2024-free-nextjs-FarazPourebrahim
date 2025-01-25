@@ -29,9 +29,8 @@
         outline: none;
 
         background-color: #fff;
-        transition:
-          background-color 0.2s ease,
-          border-color 0.2s ease;
+        transition: 0.2s ease;
+        transition-property: opacity, transform;
 
         &:checked {
           background-color: var(--color-primary);
