@@ -5,12 +5,14 @@ import {
   PropsWithChildren,
   ReactElement,
   useState,
+  useMemo,
 } from "react";
 import { FiltersType } from "@/app/search/types/filters.type";
 import { mockTours } from "@/mocks/mockTours";
 
 type ContextValue = {
   filters: FiltersType;
+  initialFilters: FiltersType;
   changeFilter: <TKey extends keyof FiltersType>(
     key: TKey,
     value: FiltersType[TKey],
@@ -22,7 +24,14 @@ type ContextValue = {
 export const FiltersContext = createContext<ContextValue>({
   filters: {
     min: 0,
-    max: 10000000,
+    max: 0,
+    type: "All",
+    guide: false,
+    duration: [1, 30],
+  },
+  initialFilters: {
+    min: 0,
+    max: 0,
     type: "All",
     guide: false,
     duration: [1, 30],
@@ -38,13 +47,18 @@ export default function FiltersProvider({ children }: Props): ReactElement {
   const minPrice = Math.min(...mockTours.map((tour) => tour.price));
   const maxPrice = Math.max(...mockTours.map((tour) => tour.price));
 
-  const [filters, setFilters] = useState<FiltersType>({
-    min: minPrice,
-    max: maxPrice,
-    type: "All",
-    guide: false,
-    duration: [1, 30],
-  });
+  const initialFilters: FiltersType = useMemo(
+    () => ({
+      min: minPrice,
+      max: maxPrice,
+      type: "All",
+      guide: false,
+      duration: [1, 30],
+    }),
+    [minPrice, maxPrice],
+  );
+
+  const [filters, setFilters] = useState<FiltersType>(initialFilters);
 
   const changeFilter = <TKey extends keyof FiltersType>(
     key: TKey,
@@ -62,18 +76,12 @@ export default function FiltersProvider({ children }: Props): ReactElement {
   };
 
   const clearAll = (): void => {
-    setFilters({
-      min: minPrice,
-      max: maxPrice,
-      type: "All",
-      guide: false,
-      duration: [1, 30],
-    });
+    setFilters(initialFilters);
   };
 
   return (
     <FiltersContext.Provider
-      value={{ filters, changeFilter, removeFilter, clearAll }}
+      value={{ filters, initialFilters, changeFilter, removeFilter, clearAll }}
     >
       {children}
     </FiltersContext.Provider>

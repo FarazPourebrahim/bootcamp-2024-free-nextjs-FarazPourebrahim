@@ -6,7 +6,7 @@ import { FiltersContext } from "@/app/search/providers/filters/filters.provider"
 import { FiltersType } from "@/app/search/types/filters.type";
 
 export default function PriceRangeFilter() {
-  const { filters, changeFilter } = useContext(FiltersContext);
+  const { filters, initialFilters, changeFilter } = useContext(FiltersContext);
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 0]);
 
   const formatNumber = (number: number): string => {
@@ -15,9 +15,9 @@ export default function PriceRangeFilter() {
 
   useEffect(() => {
     const initialMin = filters.min ?? 0;
-    const initialMax = filters.max ?? 100000000;
+    const initialMax = filters.max ?? initialFilters.max;
     setPriceRange([initialMin, initialMax]);
-  }, [filters.min, filters.max]);
+  }, [filters.min, filters.max, initialFilters.max]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -46,7 +46,7 @@ export default function PriceRangeFilter() {
               name="min"
               step="200000"
               min="0"
-              max={priceRange[1]}
+              max={initialFilters.max}
               value={priceRange[0]}
               onChange={handleChange}
               className={styles.input}
@@ -55,7 +55,7 @@ export default function PriceRangeFilter() {
           <input
             type="range"
             min="0"
-            max={priceRange[1]}
+            max={initialFilters.max}
             step="500000"
             value={priceRange[0]}
             onChange={(e) =>
@@ -78,7 +78,7 @@ export default function PriceRangeFilter() {
               name="max"
               step="200000"
               min={priceRange[0]}
-              max="10000000"
+              max={initialFilters.max}
               value={priceRange[1]}
               onChange={handleChange}
               className={styles.input}
@@ -87,7 +87,7 @@ export default function PriceRangeFilter() {
           <input
             type="range"
             min={priceRange[0]}
-            max="10000000"
+            max={initialFilters.max}
             step="500000"
             value={priceRange[1]}
             onChange={(e) =>
