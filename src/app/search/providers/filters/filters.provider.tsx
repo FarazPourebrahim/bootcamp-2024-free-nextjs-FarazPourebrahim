@@ -7,6 +7,7 @@ import {
   useState,
 } from "react";
 import { FiltersType } from "@/app/search/types/filters.type";
+import { mockTours } from "@/mocks/mockTours";
 
 type ContextValue = {
   filters: FiltersType;
@@ -34,9 +35,12 @@ export const FiltersContext = createContext<ContextValue>({
 type Props = PropsWithChildren;
 
 export default function FiltersProvider({ children }: Props): ReactElement {
+  const minPrice = Math.min(...mockTours.map((tour) => tour.price));
+  const maxPrice = Math.max(...mockTours.map((tour) => tour.price));
+
   const [filters, setFilters] = useState<FiltersType>({
-    min: 0,
-    max: 10000000,
+    min: minPrice,
+    max: maxPrice,
     type: "All",
     guide: false,
     duration: [1, 30],
@@ -59,8 +63,8 @@ export default function FiltersProvider({ children }: Props): ReactElement {
 
   const clearAll = (): void => {
     setFilters({
-      min: 0,
-      max: 10000000,
+      min: minPrice,
+      max: maxPrice,
       type: "All",
       guide: false,
       duration: [1, 30],
