@@ -13,8 +13,16 @@ import SearchBox from "@/components/SearchBox/SearchBox";
 import Sort from "@/app/search/components/Sort/Sort";
 import Card from "@/components/Card/Card";
 
-function PageContent() {
-  const { sortedMockTours, handleSortChange, sortOption } = useTours();
+type SearchParams = { [key: string]: string | string[] | undefined };
+
+type Props = {
+  searchParams: SearchParams;
+};
+
+function PageContent({ searchParams }: Props): React.ReactElement {
+  const query =
+    typeof searchParams.query === "string" ? searchParams.query : "";
+  const { sortedMockTours, handleSortChange, sortOption } = useTours(query);
 
   return (
     <div className={styles.page}>
@@ -41,10 +49,10 @@ function PageContent() {
   );
 }
 
-export default function Page() {
+export default function Page({ searchParams }: Props): React.ReactElement {
   return (
     <FiltersProvider>
-      <PageContent />
+      <PageContent searchParams={searchParams} />
     </FiltersProvider>
   );
 }

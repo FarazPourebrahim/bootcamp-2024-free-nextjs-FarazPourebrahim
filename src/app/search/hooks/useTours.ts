@@ -2,7 +2,7 @@ import { useContext, useMemo, useState } from "react";
 import { FiltersContext } from "@/app/search/providers/filters/filters.provider";
 import { mockTours } from "@/mocks/mockTours";
 
-export function useTours() {
+export function useTours(query: string) {
   const { filters } = useContext(FiltersContext);
   const [sortOption, setSortOption] = useState<string>("price-asc");
 
@@ -12,7 +12,11 @@ export function useTours() {
 
   const filteredMockTours = useMemo(() => {
     return mockTours.filter((item) => {
+      const matchesQuery = query
+        ? item.title.toLowerCase().includes(query.toLowerCase())
+        : true;
       return (
+        matchesQuery &&
         (filters.type === "All" || filters.type.includes(item.type)) &&
         item.price >= filters.min &&
         item.price <= filters.max &&
@@ -22,7 +26,7 @@ export function useTours() {
         item.duration <= filters.duration[1]
       );
     });
-  }, [filters]);
+  }, [filters, query]);
 
   const sortedMockTours = useMemo(() => {
     return [...filteredMockTours].sort((a, b) => {
