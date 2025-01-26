@@ -22,7 +22,13 @@ export default function SearchBox(): ReactElement {
     } else {
       params.delete("query");
     }
-    router.push(`?${params.toString()}`);
+
+    const newUrl = `/search?${params.toString()}`;
+    if (window.location.pathname !== "/search") {
+      router.push(newUrl);
+    } else {
+      router.push(`?${params.toString()}`);
+    }
   };
 
   useEffect(() => {
