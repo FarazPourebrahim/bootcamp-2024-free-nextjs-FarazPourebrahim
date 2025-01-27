@@ -1,0 +1,24 @@
+.comment {
+  background-color: var(--color-gray-94);
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+
+  .comment-header {
+    display: flex;
+    align-items: center;
+
+    img {
+      mix-blend-mode: darken;
+      margin-inline-end: 1rem;
+    }
+
+    .user {
+      font-weight: 700;
+      padding: 0.25rem;
+    }
+  }
+
+  .content {
+    padding: 1rem;
+  }
+}
