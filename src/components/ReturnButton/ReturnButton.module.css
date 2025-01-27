@@ -1,0 +1,17 @@
+.returnButton {
+  color: var(--color-primary);
+  background-color: transparent;
+  border: 1px solid currentcolor;
+  padding: 0.5rem 1rem;
+  font-size: var(--fz-400);
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  transition: 0.3s ease;
+  transition-property: opacity, transform;
+  box-shadow: var(--shadow-400);
+
+  &:hover {
+    background-color: var(--color-primary-lighter);
+    color: var(--color-gray-98);
+  }
+}
