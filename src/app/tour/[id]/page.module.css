@@ -8,6 +8,7 @@
     flex-direction: column;
     gap: 1rem;
     height: auto;
+    min-height: 90rem;
     margin-block-end: 1rem;
     margin-block-start: 5rem;
 
