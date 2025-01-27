@@ -1,0 +1,28 @@
+.container {
+  .buttonGroup {
+    display: flex;
+    gap: 1rem;
+    margin-inline-start: 2rem;
+    margin-block: 1rem;
+
+    .button {
+      background-color: var(--color-primary);
+      color: var(--color-gray-98);
+      border: none;
+      padding: 0.5rem;
+      font-size: var(--fz-400);
+      cursor: pointer;
+      border-radius: 0.5rem;
+      transition: 0.3s ease;
+      transition-property: opacity, transform;
+
+      &:hover {
+        background-color: var(--color-primary-lighter);
+      }
+    }
+
+    .active {
+      background-color: var(--color-primary-darker);
+    }
+  }
+}
