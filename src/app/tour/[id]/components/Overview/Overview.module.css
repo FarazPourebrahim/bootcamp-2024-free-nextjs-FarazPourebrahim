@@ -1,0 +1,12 @@
+.section {
+  padding: 1rem 2rem;
+
+  .title {
+  }
+
+  .detail {
+    .label {
+      font-weight: 700;
+    }
+  }
+}
