@@ -46,6 +46,7 @@ export default function page({ params }: Props): ReactElement {
           <h2 className={styles.title}>{tour.title}</h2>
           <ReturnButton path={"/search"}>بازگشت</ReturnButton>
         </div>
+        <div className={styles.separator}></div>
         <div className={styles.image}>
           <Image src={tour.image} alt={tour.title} width={600} height={400} />
         </div>
