@@ -1,6 +1,7 @@
 .comment {
-  background-color: var(--color-gray-94);
-  padding: 1rem 2rem;
+  background-color: var(--color-gray-100);
+  box-shadow: var(--shadow-500);
+  padding: 0.5rem 1rem;
   border-radius: 1rem;
 
   .comment-header {
