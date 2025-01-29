@@ -21,13 +21,13 @@ export default function Recommended(): ReactElement {
     <div className={styles.recommended}>
       <h3>یک ماجراجویی فراموش‌نشدنی در همین نزدیکی!</h3>
       <div className={styles["random-recommendations"]}>
-        <Link href={"/search"} className={styles.more}>
+        <Link href="/search" className={styles.more}>
           ▶
         </Link>
         {randomTours.map((tour) => (
           <Card key={tour.id} tour={tour} />
         ))}
-        <Link href={"/search"} className={styles.more}>
+        <Link href="/search" className={styles.more}>
           ◀
         </Link>
       </div>

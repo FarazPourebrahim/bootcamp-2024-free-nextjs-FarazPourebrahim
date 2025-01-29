@@ -44,7 +44,7 @@ export default function page({ params }: Props): ReactElement {
       <div className={styles.main}>
         <div className={styles["main-header"]}>
           <h2 className={styles.title}>{tour.title}</h2>
-          <ReturnButton path={"/search"}>بازگشت</ReturnButton>
+          <ReturnButton path="/search">بازگشت</ReturnButton>
         </div>
         <div className={styles.separator}></div>
         <div className={styles.image}>

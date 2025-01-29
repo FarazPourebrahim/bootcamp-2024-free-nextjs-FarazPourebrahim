@@ -7,7 +7,7 @@ export default function Hero(): ReactElement {
     <div className={styles.hero}>
       <div className={styles["hero-image"]}>
         <div className={styles.circle}></div>
-        <Image src={"/images/hero.png"} height={400} width={600} alt={""} />
+        <Image src="/images/hero.png" height={400} width={600} alt="" />
       </div>
       <div className={styles.intro}>
         <h2 className={styles["hero-header"]}>

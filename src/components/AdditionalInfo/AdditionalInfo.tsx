@@ -21,8 +21,8 @@ export default function AdditionalInfo(): ReactElement {
         <div className={styles.circle}></div>
         <div className={styles["small-circle"]}></div>
         <Image
-          src={"/images/additional-info.png"}
-          alt={""}
+          src="/images/additional-info.png"
+          alt=""
           width={500}
           height={500}
         />
