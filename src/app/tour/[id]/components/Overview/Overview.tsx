@@ -3,7 +3,7 @@ import styles from "./Overview.module.css";
 import { mockTours } from "@/mocks/mockTours";
 
 type Props = {
-  tourId: number;
+  tourId: number | undefined;
 };
 
 export default function Overview({ tourId }: Props): ReactElement {

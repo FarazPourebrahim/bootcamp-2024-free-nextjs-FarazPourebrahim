@@ -5,7 +5,7 @@ import Comment from "@/app/tour/[id]/components/CommentCard/Comment";
 import { mockComments } from "@/mocks/mockComments";
 
 interface ReviewProps {
-  tourId: number;
+  tourId: number | undefined;
 }
 
 export default function Review({ tourId }: ReviewProps): ReactElement {

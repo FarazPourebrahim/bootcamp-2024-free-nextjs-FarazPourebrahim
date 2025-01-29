@@ -10,20 +10,26 @@ type Props = {
   tourId: number;
 };
 
+type Tab = {
+  title: string;
+  value: string;
+  renderContent: (tourId: number | undefined) => React.JSX.Element;
+};
+
 export default function TourDetails({ tourId }: Props): ReactElement {
   const [activeTab, setActiveTab] = useState("Overview");
 
-  const tabs = [
+  const tabs: Tab[] = [
     {
       title: "اطلاعات کلی",
       value: "Overview",
-      renderContent: (tourId: number) => <Overview tourId={tourId} />,
+      renderContent: (tourId) => <Overview tourId={tourId} />,
     },
     { title: "جزئیات", value: "Details", renderContent: () => <Details /> },
     {
       title: "نظرات",
       value: "Review",
-      renderContent: (tourId: number) => <Review tourId={tourId} />,
+      renderContent: (tourId) => <Review tourId={tourId} />,
     },
   ];
 
