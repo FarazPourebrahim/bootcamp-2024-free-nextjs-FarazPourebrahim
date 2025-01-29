@@ -20,20 +20,19 @@
   .main {
     .main-header {
       display: flex;
-      flex-direction: row;
       justify-content: space-between;
-      width: 100%;
-      padding: 1rem 5rem;
+      padding-block: 1rem;
 
       .title {
         text-align: center;
         font-size: var(--fz-500);
+        color: var(--color-gray-20);
       }
     }
 
     .separator {
       width: 100%;
-      border: 1px solid var(--color-gray-80);
+      border: 1px solid var(--color-gray-90);
     }
 
     .image {

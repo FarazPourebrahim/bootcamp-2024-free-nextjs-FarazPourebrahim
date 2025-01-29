@@ -27,7 +27,7 @@
     margin-inline-start: auto;
     padding: 0.5rem 1rem;
 
-    border: 1px solid currentcolor;
+    border: none;
     border-radius: var(--border-radius);
 
     font-weight: 700;
