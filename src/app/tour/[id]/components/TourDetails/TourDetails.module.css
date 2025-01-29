@@ -1,5 +1,5 @@
 .container {
-  .buttonGroup {
+  .tabs {
     display: flex;
     gap: 1rem;
     margin-inline-start: 2rem;

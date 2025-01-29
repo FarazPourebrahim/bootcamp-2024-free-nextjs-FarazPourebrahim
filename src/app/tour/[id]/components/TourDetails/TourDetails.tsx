@@ -15,18 +15,22 @@ export default function TourDetails({ tourId }: Props): ReactElement {
 
   const tabs = [
     {
-      label: "اطلاعات کلی",
+      title: "اطلاعات کلی",
       value: "Overview",
-      component: <Overview tourId={tourId} />,
+      renderContent: (tourId: number) => <Overview tourId={tourId} />,
     },
-    { label: "جزئیات", value: "Details", component: <Details /> },
-    { label: "نظرات", value: "Review", component: <Review tourId={tourId} /> },
+    { title: "جزئیات", value: "Details", renderContent: () => <Details /> },
+    {
+      title: "نظرات",
+      value: "Review",
+      renderContent: (tourId: number) => <Review tourId={tourId} />,
+    },
   ];
 
   const renderContent = () => {
     const activeTabObject = tabs.find((tab) => tab.value === activeTab);
     return activeTabObject ? (
-      activeTabObject.component
+      activeTabObject.renderContent(tourId)
     ) : (
       <Overview tourId={tourId} />
     );
@@ -34,7 +38,7 @@ export default function TourDetails({ tourId }: Props): ReactElement {
 
   return (
     <div className={styles.container}>
-      <div className={styles.buttonGroup}>
+      <div className={styles.tabs}>
         {tabs.map((tab) => (
           <button
             key={tab.value}
@@ -43,7 +47,7 @@ export default function TourDetails({ tourId }: Props): ReactElement {
             }`}
             onClick={() => setActiveTab(tab.value)}
           >
-            {tab.label}
+            {tab.title}
           </button>
         ))}
       </div>
