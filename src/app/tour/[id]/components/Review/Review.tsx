@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 import styles from "./Review.module.css";
-import CommentCard from "@/app/tour/[id]/components/CommentCard/CommentCard";
+import Comment from "@/app/tour/[id]/components/CommentCard/Comment";
 
 import { mockComments } from "@/mocks/mockComments";
 
@@ -16,7 +16,7 @@ export default function Review({ tourId }: ReviewProps): ReactElement {
   return (
     <div className={styles.section}>
       {filteredComments.map((comment) => (
-        <CommentCard key={comment.id} comment={comment} />
+        <Comment key={comment.id} comment={comment} />
       ))}
     </div>
   );

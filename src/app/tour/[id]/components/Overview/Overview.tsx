@@ -25,7 +25,7 @@ export default function Overview({ tourId }: Props): ReactElement {
   )?.label;
 
   return (
-    <div className={styles.section}>
+    <div className={styles.overview}>
       <h2 className={styles.title}>{tour?.title}</h2>
       <p className={styles.detail}>
         <span className={styles.label}>موقعیت: </span>

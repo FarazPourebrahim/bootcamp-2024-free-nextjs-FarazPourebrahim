@@ -1,10 +1,10 @@
 import { ReactElement } from "react";
 import { MockComment } from "@/mocks/mockComments";
 import { mockUsers } from "@/mocks/mockUsers";
-import styles from "./CommentCard.module.css";
+import styles from "./Comment.module.css";
 import Image from "next/image";
 
-export default function CommentCard({
+export default function Comment({
   comment,
 }: {
   comment: MockComment;
