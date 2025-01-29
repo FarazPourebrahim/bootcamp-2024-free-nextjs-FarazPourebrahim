@@ -15,6 +15,7 @@ export function useTours(query: string) {
       const matchesQuery = query
         ? item.title.toLowerCase().includes(query.toLowerCase())
         : true;
+
       return (
         matchesQuery &&
         (filters.type === "All" || filters.type.includes(item.type)) &&

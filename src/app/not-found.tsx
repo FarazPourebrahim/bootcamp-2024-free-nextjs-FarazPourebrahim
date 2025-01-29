@@ -19,7 +19,7 @@ export default function NotFound(): ReactElement {
         <Image src={notFoundImage} alt="" />
       </div>
       <div className={styles.search}>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div>در حال بارگذاری، لطفا منتظر بمانید.</div>}>
           <SearchBox />
         </Suspense>
       </div>
