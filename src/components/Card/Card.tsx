@@ -3,17 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { MockTour } from "@/mocks/mockTours";
 
-const typeToPersian: Record<MockTour["type"], string> = {
-  Adventure: "ماجراجویی",
-  Cultural: "فرهنگی",
-  Historical: "تاریخی",
-  Relaxation: "آرامش",
-  Luxury: "لوکس",
-  Family: "خانوادگی",
-  Nature: "طبیعت‌گردی",
-  Sports: "ورزشی",
-};
-
 export default function Card({ tour }: { tour: MockTour }) {
   const { id, title, location, price, duration, guideAvailable, type, image } =
     tour;
@@ -34,7 +23,7 @@ export default function Card({ tour }: { tour: MockTour }) {
           <span>{duration} روز</span>
           <span>{guideAvailable ? "با راهنما" : "بدون راهنما"}</span>
         </p>
-        <p className={styles.type}>{typeToPersian[type]}</p>
+        <p className={styles.type}>{type.label}</p>
         <p className={styles.price}>{price.toLocaleString()} تومان</p>
       </div>
     </Link>
