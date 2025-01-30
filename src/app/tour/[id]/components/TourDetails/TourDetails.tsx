@@ -12,52 +12,37 @@ type Props = {
 
 type Tab = {
   title: string;
-  value: string;
   renderContent: (tourId: number | undefined) => React.JSX.Element;
 };
 
 export default function TourDetails({ tourId }: Props): ReactElement {
-  const [activeTab, setActiveTab] = useState("Overview");
+  const [activeTabIndex, setActiveTabIndex] = useState(0);
 
   const tabs: Tab[] = [
     {
       title: "اطلاعات کلی",
-      value: "Overview",
       renderContent: (tourId) => <Overview tourId={tourId} />,
     },
-    { title: "جزئیات", value: "Details", renderContent: () => <Details /> },
-    {
-      title: "نظرات",
-      value: "Review",
-      renderContent: (tourId) => <Review tourId={tourId} />,
-    },
+    { title: "جزئیات", renderContent: () => <Details /> },
+    { title: "نظرات", renderContent: (tourId) => <Review tourId={tourId} /> },
   ];
-
-  const renderContent = () => {
-    const activeTabObject = tabs.find((tab) => tab.value === activeTab);
-    return activeTabObject ? (
-      activeTabObject.renderContent(tourId)
-    ) : (
-      <Overview tourId={tourId} />
-    );
-  };
 
   return (
     <div className={styles.container}>
       <div className={styles.tabs}>
-        {tabs.map((tab) => (
+        {tabs.map((tab, index) => (
           <button
-            key={tab.value}
-            className={`${styles.button} ${
-              activeTab === tab.value ? styles.active : ""
-            }`}
-            onClick={() => setActiveTab(tab.value)}
+            key={index}
+            className={`${styles.button} ${activeTabIndex === index ? styles.active : ""}`}
+            onClick={() => setActiveTabIndex(index)}
           >
             {tab.title}
           </button>
         ))}
       </div>
-      <div className={styles.content}>{renderContent()}</div>
+      <div className={styles.content}>
+        {tabs[activeTabIndex].renderContent(tourId)}
+      </div>
     </div>
   );
 }
