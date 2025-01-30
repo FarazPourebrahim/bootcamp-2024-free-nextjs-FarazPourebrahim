@@ -12,6 +12,7 @@
   cursor: pointer;
   flex: 1 1 17em;
   max-height: 28rem;
+  max-width: 18rem;
 
   &:hover {
     transform: translateY(-5px);

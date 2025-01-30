@@ -1,27 +1,14 @@
 .container {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 3fr 1fr;
   gap: 1rem;
-
-  .recommended {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    height: auto;
-    min-height: 90rem;
-    margin-block-end: 1rem;
-    margin-block-start: 5rem;
-
-    .recommended-header {
-      text-align: center;
-    }
-  }
 
   .main {
     .main-header {
       display: flex;
       justify-content: space-between;
       padding-block: 1rem;
+      align-items: center;
 
       .title {
         text-align: center;
@@ -36,14 +23,27 @@
     }
 
     .image {
-      width: 60%;
-      margin-inline: 10rem;
-      height: auto;
+      max-width: 40rem;
+      margin-inline: auto;
       margin-block-start: 2rem;
 
       img {
         border-radius: 1rem;
       }
+    }
+  }
+
+  .recommended {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: auto;
+    min-height: 90rem;
+    margin-block-end: 1rem;
+    margin-block-start: 5rem;
+
+    .recommended-header {
+      text-align: center;
     }
   }
 }
