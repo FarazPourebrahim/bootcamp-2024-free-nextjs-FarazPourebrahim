@@ -5,18 +5,16 @@ import { useRouter } from "next/navigation";
 import styles from "./ReturnButton.module.css";
 
 interface ReturnButtonProps {
-  path: string;
   children: ReactNode;
 }
 
 export default function ReturnButton({
-  path,
   children,
 }: ReturnButtonProps): ReactElement {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push(path);
+    router.back();
   };
 
   return (
