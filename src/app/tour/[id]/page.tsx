@@ -12,33 +12,37 @@ type Props = {
 };
 
 export default function page({ params }: Props): ReactElement {
-  const tour: MockTour | undefined = mockTours.find(
-    (x) => x.id === Number(params.id),
-  );
+  const tour = mockTours.find((x) => x.id === Number(params.id));
 
   if (!tour) {
     return notFound();
   }
 
   //TEMP
-  const getRandomIndexes = (count: number, max: number): number[] => {
+  const getRandomTours = (
+    count: number,
+    currentTourId: number,
+    tours: MockTour[],
+  ): MockTour[] => {
+    const filteredTours = tours.filter((tour) => tour.id !== currentTourId);
     const indexes = new Set<number>();
-    while (indexes.size < count) {
-      const randomIndex = Math.floor(Math.random() * max);
+
+    while (indexes.size < count && indexes.size < filteredTours.length) {
+      const randomIndex = Math.floor(Math.random() * filteredTours.length);
       indexes.add(randomIndex);
     }
-    return Array.from(indexes);
+
+    return Array.from(indexes).map((index) => filteredTours[index]);
   };
 
-  const randomIndexes = getRandomIndexes(3, mockTours.length);
-  const randomTours = randomIndexes.map((index) => mockTours[index]);
+  const randomTours = getRandomTours(3, Number(params.id), mockTours);
 
   return (
     <div className={styles.container}>
       <div className={styles.main}>
         <div className={styles["main-header"]}>
           <h2 className={styles.title}>{tour.title}</h2>
-          <ReturnButton path="/search">بازگشت</ReturnButton>
+          <ReturnButton>بازگشت</ReturnButton>
         </div>
         <div className={styles.separator}></div>
         <div className={styles.image}>
