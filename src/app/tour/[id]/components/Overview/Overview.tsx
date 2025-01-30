@@ -9,21 +9,6 @@ type Props = {
 export default function Overview({ tourId }: Props): ReactElement {
   const tour = mockTours.find((tour) => tour.id === tourId);
 
-  const tourTypes = [
-    { value: "Cultural", label: "فرهنگی" },
-    { value: "Adventure", label: "ماجراجویی" },
-    { value: "Luxury", label: "لوکس" },
-    { value: "Family", label: "خانوادگی" },
-    { value: "Nature", label: "طبیعت‌گردی" },
-    { value: "Historical", label: "تاریخی" },
-    { value: "Sports", label: "ورزشی" },
-    { value: "Relaxation", label: "آرامش" },
-  ];
-
-  const tourTypeLabel = tourTypes.find(
-    (type) => type.value === tour?.type,
-  )?.label;
-
   return (
     <div className={styles.overview}>
       <h2 className={styles.title}>{tour?.title}</h2>
@@ -45,7 +30,7 @@ export default function Overview({ tourId }: Props): ReactElement {
       </p>
       <p className={styles.detail}>
         <span className={styles.label}>نوع: </span>
-        {tourTypeLabel}
+        {tour?.type.label}
       </p>
     </div>
   );
