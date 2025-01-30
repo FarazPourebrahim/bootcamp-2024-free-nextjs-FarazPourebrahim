@@ -18,7 +18,7 @@ export function useTours(query: string) {
 
       return (
         matchesQuery &&
-        (filters.type === "All" || filters.type.includes(item.type)) &&
+        (filters.type === "All" || filters.type.includes(item.type.value)) &&
         item.price >= filters.min &&
         item.price <= filters.max &&
         (!filters.isGuideMandatory ||

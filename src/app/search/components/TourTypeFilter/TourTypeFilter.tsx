@@ -3,9 +3,10 @@
 import { useContext } from "react";
 import { FiltersContext } from "@/app/search/providers/filters/filters.provider";
 import styles from "./TourTypeFilter.module.css";
+import { TourType } from "@/mocks/mockTours";
 
 export default function TourTypeFilter() {
-  const tourTypes = [
+  const tourTypes: TourType[] = [
     { value: "Cultural", label: "فرهنگی" },
     { value: "Adventure", label: "ماجراجویی" },
     { value: "Luxury", label: "لوکس" },
