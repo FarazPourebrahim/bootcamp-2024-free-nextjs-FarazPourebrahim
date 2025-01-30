@@ -34,11 +34,10 @@
   }
 
   .recommended {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
     gap: 1rem;
-    height: auto;
-    min-height: 90rem;
+    min-height: auto;
     margin-block-end: 1rem;
     margin-block-start: 5rem;
 

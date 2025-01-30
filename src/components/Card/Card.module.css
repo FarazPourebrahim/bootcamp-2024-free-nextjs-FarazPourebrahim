@@ -10,7 +10,7 @@
     transform 0.3s,
     box-shadow 0.3s;
   cursor: pointer;
-  flex: 1 1 17em;
+  flex: 1 1;
   max-height: 28rem;
   max-width: 18rem;
 
