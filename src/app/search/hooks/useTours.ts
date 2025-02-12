@@ -4,9 +4,12 @@ import { mockTours } from "@/mocks/mockTours";
 
 export function useTours(query: string) {
   const { filters } = useContext(FiltersContext);
-  const [sortOption, setSortOption] = useState<string>("price-asc");
+  const [sortOption, setSortOption] = useState({
+    label: "قیمت (کم به زیاد)",
+    value: "price-asc",
+  });
 
-  const handleSortChange = (option: string) => {
+  const handleSortChange = (option: { value: string; label: string }) => {
     setSortOption(option);
   };
 
@@ -31,7 +34,7 @@ export function useTours(query: string) {
 
   const sortedMockTours = useMemo(() => {
     return [...filteredMockTours].sort((a, b) => {
-      switch (sortOption) {
+      switch (sortOption.value) {
         case "price-asc":
           return a.price - b.price;
         case "price-desc":
