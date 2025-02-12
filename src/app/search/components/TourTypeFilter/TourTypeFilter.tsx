@@ -42,9 +42,6 @@ export default function TourTypeFilter() {
       <div className={styles.checkboxGroup}>
         {tourTypes.map((type) => (
           <div key={type.value} className={styles.checkboxItem}>
-            <label htmlFor={type.value} className={styles.checkboxLabel}>
-              {type.label}
-            </label>
             <input
               type="checkbox"
               id={type.value}
@@ -53,6 +50,9 @@ export default function TourTypeFilter() {
               onChange={() => handleCheckboxChange(type.value)}
               className={styles.checkbox}
             />
+            <label htmlFor={type.value} className={styles.checkboxLabel}>
+              {type.label}
+            </label>
           </div>
         ))}
       </div>

@@ -1,11 +1,10 @@
 .card {
-  border: 1px solid var(--color-gray-90);
   border-radius: 0.5rem;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   background-color: var(--color-gray-100);
-  box-shadow: var(--shadow-600);
+  box-shadow: var(--shadow-400);
   transition:
     transform 0.3s,
     box-shadow 0.3s;
@@ -16,7 +15,7 @@
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-650);
+    box-shadow: var(--shadow-600);
   }
 
   .image {
