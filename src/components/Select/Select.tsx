@@ -14,7 +14,7 @@ type SelectOptionType = {
   value: any;
   label: string;
 };
-import styles from "./select.module.css";
+import styles from "./Select.module.css";
 
 type Props = {
   floating?: boolean;
