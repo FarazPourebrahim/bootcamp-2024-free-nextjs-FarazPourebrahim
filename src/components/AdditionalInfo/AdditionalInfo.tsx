@@ -6,15 +6,13 @@ export default function AdditionalInfo(): ReactElement {
   return (
     <section className={styles["additional-info"]}>
       <div className={styles.info}>
+        <h4>
+          لذت سفر با <span>تورنیدو</span>
+        </h4>
         <p>
           ما همه چیز را برای شما ساده کرده‌ایم! از برنامه‌ریزی سفر تا رزرو
-          تورها، همه مراحل بدون <span className={styles.danger}>استرس</span> و
-          کاملاً <span className={styles.success}>راحت</span> انجام می‌شوند.
-        </p>
-        <p>
-          با ما، تنها چیزی که به آن فکر می‌کنید،{" "}
-          <span className={styles.primary}>لذت</span> بردن از سفرهای خاطره‌ساز
-          است!
+          تورها، همه مراحل بدون استرس و انجام می‌شوند. با ما، تنها چیزی که به آن
+          فکر می‌کنید، لذت بردن از سفرهای خاطره‌ساز است!
         </p>
       </div>
       <div className={styles.image}>
