@@ -18,13 +18,17 @@ export default function Card({ tour }: { tour: MockTour }) {
       />
       <div className={styles.content}>
         <h3 className={styles.title}>{title}</h3>
-        <p className={styles.location}>{location}</p>
         <p className={styles.details}>
+          <span>{location}</span>
+          <span>/</span>
           <span>{duration} روز</span>
+          <span>/</span>
           <span>{guideAvailable ? "با راهنما" : "بدون راهنما"}</span>
         </p>
-        <p className={styles.type}>{type.label}</p>
-        <p className={styles.price}>{price.toLocaleString()} تومان</p>
+        <div className={styles.bottom}>
+          <p className={styles.price}>{price.toLocaleString()} تومان</p>
+          <p className={styles.type}>{type.label}</p>
+        </div>
       </div>
     </Link>
   );
