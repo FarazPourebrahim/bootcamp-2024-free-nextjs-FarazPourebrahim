@@ -87,6 +87,11 @@ a {
   text-decoration: none;
 }
 
+html {
+  font-family: "Vazirmatn", system-ui;
+  font-feature-settings: "ss01";
+}
+
 body {
   background-color: var(--color-default-background);
   color: var(--color-default-foreground);
