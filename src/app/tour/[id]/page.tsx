@@ -39,7 +39,7 @@ export default function page({ params }: Props): ReactElement {
 
   return (
     <div className={styles.container}>
-      <div className={styles.main}>
+      <main className={styles.main}>
         <div className={styles["main-header"]}>
           <h2 className={styles.title}>{tour.title}</h2>
           <ReturnButton>بازگشت</ReturnButton>
@@ -49,13 +49,13 @@ export default function page({ params }: Props): ReactElement {
           <Image src={tour.image} alt={tour.title} width={600} height={400} />
         </div>
         <TourDetails tourId={Number(params.id)} />
-      </div>
-      <div className={styles.recommended}>
+      </main>
+      <aside className={styles.recommended}>
         <h3 className={styles["recommended-header"]}>تورهای مشابه</h3>
         {randomTours.map((tour) => (
           <Card key={tour.id} tour={tour} />
         ))}
-      </div>
+      </aside>
     </div>
   );
 }

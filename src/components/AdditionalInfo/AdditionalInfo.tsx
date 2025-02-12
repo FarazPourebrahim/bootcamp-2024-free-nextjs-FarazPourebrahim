@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function AdditionalInfo(): ReactElement {
   return (
-    <div className={styles["additional-info"]}>
+    <section className={styles["additional-info"]}>
       <div className={styles.info}>
         <p>
           ما همه چیز را برای شما ساده کرده‌ایم! از برنامه‌ریزی سفر تا رزرو
@@ -27,6 +27,6 @@ export default function AdditionalInfo(): ReactElement {
           height={500}
         />
       </div>
-    </div>
+    </section>
   );
 }

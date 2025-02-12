@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Hero(): ReactElement {
   return (
-    <div className={styles.hero}>
+    <section className={styles.hero}>
       <div className={styles["hero-image"]}>
         <div className={styles.circle}></div>
         <Image src="/images/hero.png" height={400} width={600} alt="" />
@@ -21,6 +21,6 @@ export default function Hero(): ReactElement {
           سفرهایی پر از هیجان، شادی و خاطرات ماندگار<br></br> برای تو و عزیزانت.
         </p>
       </div>
-    </div>
+    </section>
   );
 }

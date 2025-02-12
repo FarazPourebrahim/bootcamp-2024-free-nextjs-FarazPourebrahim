@@ -28,7 +28,7 @@ export default function TourDetails({ tourId }: Props): ReactElement {
   ];
 
   return (
-    <div className={styles.container}>
+    <section className={styles.details}>
       <div className={styles.tabs}>
         {tabs.map((tab, index) => (
           <button
@@ -43,6 +43,6 @@ export default function TourDetails({ tourId }: Props): ReactElement {
       <div className={styles.content}>
         {tabs[activeTabIndex].renderContent(tourId)}
       </div>
-    </div>
+    </section>
   );
 }

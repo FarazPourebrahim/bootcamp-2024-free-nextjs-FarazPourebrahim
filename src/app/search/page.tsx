@@ -26,14 +26,14 @@ function PageContent({ searchParams }: Props): React.ReactElement {
 
   return (
     <div className={styles.page}>
-      <div className={styles.filters}>
+      <aside className={styles.filters}>
         <ResetButton />
         <TourTypeFilter />
         <PriceRangeFilter />
         <DurationFilter />
         <TourGuideFilter />
-      </div>
-      <div className={styles.main}>
+      </aside>
+      <main className={styles.main}>
         <SearchBox />
         <div className={styles["result-header"]}>
           <Sort selectedOption={sortOption} onSortChange={handleSortChange} />
@@ -44,7 +44,7 @@ function PageContent({ searchParams }: Props): React.ReactElement {
             <Card key={tour.id} tour={tour} />
           ))}
         </div>
-      </div>
+      </main>
     </div>
   );
 }
