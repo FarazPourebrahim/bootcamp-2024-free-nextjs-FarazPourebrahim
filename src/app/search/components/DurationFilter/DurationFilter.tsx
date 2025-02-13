@@ -35,7 +35,7 @@ export default function DurationFilter() {
         options={options}
         onSelectedOptionChange={handleChange}
         selectedOption={selectedOption}
-      ></Select>
+      />
     </div>
   );
 }
