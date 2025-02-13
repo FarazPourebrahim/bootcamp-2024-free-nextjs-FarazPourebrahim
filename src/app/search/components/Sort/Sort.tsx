@@ -2,11 +2,7 @@
 
 import styles from "./Sort.module.css";
 import Select from "@/components/Select/Select";
-
-type Option = {
-  value: string;
-  label: string;
-};
+import { Option } from "@/app/search/types/option.type";
 
 type SortProps = {
   selectedOption: Option;

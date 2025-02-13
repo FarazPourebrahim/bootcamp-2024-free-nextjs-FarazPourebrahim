@@ -5,11 +5,10 @@ import styles from "./DurationFilter.module.css";
 import { FiltersContext } from "@/app/search/providers/filters/filters.provider";
 import { FiltersType } from "@/app/search/types/filters.type";
 import Select from "@/components/Select/Select";
+import { durationOption } from "@/app/search/types/option.type";
 
 export default function DurationFilter() {
-  type Option = { label: string; value: [number, number] };
-
-  const options: Option[] = [
+  const options: durationOption[] = [
     { label: "هر مدتی", value: [1, 30] },
     { label: "1 تا 3 روز", value: [1, 3] },
     { label: "4 تا 7 روز", value: [4, 7] },
@@ -20,7 +19,7 @@ export default function DurationFilter() {
   const { filters, changeFilter } = useContext(FiltersContext);
   const [selectedOption, setSelectedOption] = useState(options[0]);
 
-  const handleChange = (option: Option) => {
+  const handleChange = (option: durationOption) => {
     const selectedValue = option.value as FiltersType["duration"];
     setSelectedOption(option);
     changeFilter("duration", selectedValue);
